@@ -1,9 +1,8 @@
-import express from 'express'; // 引入 Express 框架
-import { Cluster } from 'puppeteer-cluster'; // 引入 Puppeteer Cluster 库，用于并发浏览器任务
-import MarkdownIt from 'markdown-it'; // 引入 Markdown-It 库，用于解析 Markdown 语法
-import puppeteer from 'puppeteer';
+const express = require('express'); // 引入 Express 框架
+const {Cluster} = require('puppeteer-cluster'); // 引入 Puppeteer Cluster 库，用于并发浏览器任务
+const MarkdownIt = require('markdown-it'); // 引入 Markdown-It 库，用于解析 Markdown 语法
 const md = new MarkdownIt({breaks: false}); // 初始化 Markdown-It，并设置换行符解析选项
-import { LRUCache } from 'lru-cache'; // 引入 LRU 缓存库，并注意其导入方式
+const {LRUCache} = require('lru-cache'); // 引入 LRU 缓存库，并注意其导入方式
 const port = 3003; // 设置服务器监听端口
 const url = 'https://fireflycard.shushiai.com/'; // 要访问的目标 URL
 // const url = 'http://localhost:3000/'; // 要访问的目标 URL
