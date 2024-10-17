@@ -1,6 +1,8 @@
 const express = require('express'); // 引入 Express 框架
 const {Cluster} = require('puppeteer-cluster'); // 引入 Puppeteer Cluster 库，用于并发浏览器任务
 const MarkdownIt = require('markdown-it'); // 引入 Markdown-It 库，用于解析 Markdown 语法
+const chromium = require('chrome-aws-lambda');
+const puppeteer = require('puppeteer-core');
 const md = new MarkdownIt({breaks: false}); // 初始化 Markdown-It，并设置换行符解析选项
 const {LRUCache} = require('lru-cache'); // 引入 LRU 缓存库，并注意其导入方式
 const port = 3003; // 设置服务器监听端口
@@ -33,15 +35,18 @@ async function initCluster() {
         concurrency: Cluster.CONCURRENCY_CONTEXT, // 使用上下文并发模式
         maxConcurrency: maxConcurrency, // 设置最大并发数
         puppeteerOptions: {
-            args: [
-                '--disable-dev-shm-usage', // 禁用 /dev/shm 使用
-                '--disable-setuid-sandbox', // 禁用 setuid sandbox
-                '--no-first-run', // 禁止首次运行
-                '--no-sandbox', // 禁用沙盒模式
-                '--disable-setuid-sandbox',
-                '--no-zygote' // 禁用 zygote
-            ],
-            headless: true, // 无头模式
+            args: chromium.args,
+  executablePath: await chromium.executablePath,
+  headless: chromium.headless,
+            // args: [
+            //     '--disable-dev-shm-usage', // 禁用 /dev/shm 使用
+            //     '--disable-setuid-sandbox', // 禁用 setuid sandbox
+            //     '--no-first-run', // 禁止首次运行
+            //     '--no-sandbox', // 禁用沙盒模式
+            //     '--disable-setuid-sandbox',
+            //     '--no-zygote' // 禁用 zygote
+            // ],
+            // headless: true, // 无头模式
             protocolTimeout: 120000 // 设置协议超时
         }
     });
