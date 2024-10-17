@@ -225,6 +225,11 @@ app.post('/saveImg', async (req, res) => {
     }
 });
 
+// 添加默认的GET入口，输出“你好”
+app.get('/', (req, res) => {
+    res.send('你好');
+});
+
 // 处理进程终止信号
 process.on('SIGINT', async () => {
     await cluster.idle(); // 等待所有任务完成
