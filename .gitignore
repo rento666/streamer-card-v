@@ -48,3 +48,4 @@ example2.js
 /pnpm-lock.yaml
 /package-lock.json
 /yarn.lock
+.vercel
