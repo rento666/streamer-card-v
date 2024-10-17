@@ -5,25 +5,16 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "puppeteer install",
-    "build": "tsc",
-    "start": "node dist/index.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "@vercel/node": "^3.2.23",
-    "chrome-aws-lambda": "^10.1.0",
+    "chrome-aws-lambda": "6.0.0",
     "express": "^4.19.2",
-    "lru-cache": "^10.4.3",
-    "markdown-it": "^14.1.0",
     "nodemon": "^3.1.4",
-    "puppeteer": "^22.12.1",
-    "puppeteer-cluster": "^0.24.0",
-    "puppeteer-core": "^10.1.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.5.4"
+    "puppeteer-core": "6.0.0"
   },
   "engines": {
-    "node": ">=18.0.0"
-  },
-  "author": "776465535@qq.com",
-  "license": "MIT"
+    "node": "14.x"
+  }
 }
