@@ -38,6 +38,7 @@ async function initCluster() {
                 '--disable-setuid-sandbox', // 禁用 setuid sandbox
                 '--no-first-run', // 禁止首次运行
                 '--no-sandbox', // 禁用沙盒模式
+                '--disable-setuid-sandbox',
                 '--no-zygote' // 禁用 zygote
             ],
             headless: true, // 无头模式
