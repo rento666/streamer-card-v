@@ -9,6 +9,7 @@
     "build": "tsc"
   },
   "dependencies": {
+    "@vercel/node": "^3.2.23",
     "express": "^4.19.2",
     "lru-cache": "^10.4.3",
     "markdown-it": "^14.1.0",
