@@ -6,8 +6,7 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "dev": "nodemon --exec ts-node src/index.ts",
-    "build": "tsc",
-    "postinstall": "npm install puppeteer-core chrome-aws-lambda"
+    "build": "tsc"
   },
   "dependencies": {
     "@vercel/node": "^3.2.23",
