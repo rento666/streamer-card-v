@@ -4,7 +4,6 @@
   "description": "这是一个使用 Node.js、Express 和 Puppeteer 的项目，通过提供 API 生成和保存带有特定信息的卡片图像。",
   "main": "index.js",
   "scripts": {
-    "postinstall": "puppeteer install",
     "start": "node index.js"
   },
   "dependencies": {
@@ -15,6 +14,6 @@
     "puppeteer-core": "6.0.0"
   },
   "engines": {
-    "node": "16.x"
+    "node": "18.x"
   }
 }
